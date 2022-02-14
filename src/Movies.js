@@ -16,6 +16,7 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import CircularProgress from "@mui/material/CircularProgress";
 import { array10 } from "./arrayData";
+import { hover } from "@testing-library/user-event/dist/hover";
 
 
 export const Movies = () => {
@@ -84,7 +85,7 @@ export const Movies = () => {
   return (
     <React.Fragment>
       <div style={{ maxWidth: "1500px", margin: "auto", paddingTop: "50px" }}>
-        <Box sx={{ display: "grid" }}>
+        <Box sx={{ display: "grid" }} style={{margin: '0 5em'}}>
           <Grid container spacing={2}>
             <Grid item xs={4}>
               <FormControl fullWidth>
@@ -173,7 +174,7 @@ export const Movies = () => {
               )}
             </Grid>
           </Grid>
-          <Pagination style={{ marginTop: '1em'}} count={selectPageItems.length} page={page} value={page} onChange={handlePageChange} />
+          <Pagination style={{ margin: '1em 0' }} count={selectPageItems.length} page={page} value={page} onChange={handlePageChange} />
         </Box>
       </div>
     </React.Fragment>
