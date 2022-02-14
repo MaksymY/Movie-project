@@ -17,6 +17,7 @@ import Select from "@mui/material/Select";
 import CircularProgress from "@mui/material/CircularProgress";
 import { array10 } from "./arrayData";
 
+
 export const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [order, setOrder] = useState("ASC");
@@ -85,7 +86,7 @@ export const Movies = () => {
       <div style={{ maxWidth: "1500px", margin: "auto", paddingTop: "50px" }}>
         <Box sx={{ display: "grid" }}>
           <Grid container spacing={2}>
-            <Grid item xs={3}>
+            <Grid item xs={4}>
               <FormControl fullWidth>
                 <InputLabel id="items-select-label">ITEMS</InputLabel>
                 <Select
@@ -101,7 +102,7 @@ export const Movies = () => {
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item xs={3}>
+            <Grid item xs={4}>
               <FormControl fullWidth>
                 <InputLabel id="order-select-label">ORDER</InputLabel>
                 <Select
@@ -116,7 +117,7 @@ export const Movies = () => {
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item xs={3}>
+            <Grid item xs={4}>
               <FormControl fullWidth>
                 <InputLabel id="sort-select-label">SORT</InputLabel>
                 <Select
@@ -141,11 +142,11 @@ export const Movies = () => {
                   <Table stickyHeader sx={{ minWidth: 300 }} aria-label="simple table">
                     <TableHead>
                       <TableRow>
-                        <TableCell align="center">TITLE</TableCell>
-                        <TableCell align="center">GENRE</TableCell>
-                        <TableCell align="center">RATING</TableCell>
-                        <TableCell align="center">RENTALS</TableCell>
-                        <TableCell align="center">RENTAL PRICE</TableCell>
+                        <TableCell>TITLE</TableCell>
+                        <TableCell align="right">GENRE</TableCell>
+                        <TableCell align="right">RATING</TableCell>
+                        <TableCell align="right">RENTALS</TableCell>
+                        <TableCell align="right">RENTAL PRICE</TableCell>
                       </TableRow>
                     </TableHead>
                     <TableBody>
@@ -157,13 +158,13 @@ export const Movies = () => {
                             "&:last-child td, &:last-child th": { border: 0 },
                           }}
                         >
-                          <TableCell align="center" component="th" scope="row">
+                          <TableCell component="th" scope="row">
                             {movie.title}
                           </TableCell>
-                          <TableCell align="center">{movie.name}</TableCell>
-                          <TableCell align="center">{movie.rating}</TableCell>
-                          <TableCell align="center">{movie.rental}</TableCell>
-                          <TableCell align="center">{movie.rental_rate} €</TableCell>
+                          <TableCell align="right">{movie.name}</TableCell>
+                          <TableCell align="right">{movie.rating}</TableCell>
+                          <TableCell align="right">{movie.rental}</TableCell>
+                          <TableCell align="right">{movie.rental_rate} €</TableCell>
                         </TableRow>
                       ))}
                     </TableBody>
@@ -172,7 +173,7 @@ export const Movies = () => {
               )}
             </Grid>
           </Grid>
-          <Pagination count={selectPageItems.length} page={page} value={page} onChange={handlePageChange} />
+          <Pagination style={{ marginTop: '1em'}} count={selectPageItems.length} page={page} value={page} onChange={handlePageChange} />
         </Box>
       </div>
     </React.Fragment>
