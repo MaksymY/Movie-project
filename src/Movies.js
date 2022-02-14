@@ -129,8 +129,8 @@ export const Movies = () => {
                   onChange={handleSortChange}
                 >
                   <MenuItem value={"title"}>Title</MenuItem>
-                  <MenuItem value={"name"}>Genre</MenuItem>
-                  <MenuItem value={"rental"}>Rentals</MenuItem>
+                  <MenuItem value={"category"}>Genre</MenuItem>
+                  <MenuItem value={"rental_number"}>Rentals</MenuItem>
                   <MenuItem value={"rental_rate"}>Rental Price</MenuItem>
                 </Select>
               </FormControl>
@@ -162,9 +162,9 @@ export const Movies = () => {
                           <TableCell component="th" scope="row">
                             {movie.title}
                           </TableCell>
-                          <TableCell align="right">{movie.name}</TableCell>
+                          <TableCell align="right">{movie.category}</TableCell>
                           <TableCell align="right">{movie.rating}</TableCell>
-                          <TableCell align="right">{movie.rental}</TableCell>
+                          <TableCell align="right">{movie.rental_number}</TableCell>
                           <TableCell align="right">{movie.rental_rate} €</TableCell>
                         </TableRow>
                       ))}
