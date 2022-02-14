@@ -4,6 +4,7 @@ import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
+import Pagination from '@mui/material/Pagination';
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
@@ -49,8 +50,8 @@ export const Movies = () => {
     setSort(e.target.value);
   };
 
-  const handlePageChange = (e) => {
-    setPage(e.target.value);
+  const handlePageChange = (e, value) => {
+    setPage(value);
   };
 
   useEffect(() => {
@@ -132,29 +133,12 @@ export const Movies = () => {
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item xs={3}>
-              <FormControl fullWidth>
-                <InputLabel id="page-select-autowidth-label">Page</InputLabel>
-                <Select
-                  labelId="page-select-autowidth-label"
-                  id="page-select-autowidth"
-                  value={page}
-                  onChange={handlePageChange}
-                  autoWidth
-                  label="Page"
-                >
-                  {selectPageItems.map((item) => (
-                    <MenuItem value={item}>{item}</MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
-            </Grid>
             <Grid item xs={12}>
               {isLoading ? (
                 <CircularProgress />
               ) : (
                 <TableContainer component={Paper}>
-                  <Table sx={{ minWidth: 300 }} aria-label="simple table">
+                  <Table stickyHeader sx={{ minWidth: 300 }} aria-label="simple table">
                     <TableHead>
                       <TableRow>
                         <TableCell align="center">TITLE</TableCell>
@@ -167,6 +151,7 @@ export const Movies = () => {
                     <TableBody>
                       {movies.map((movie) => (
                         <TableRow
+                          hover
                           key={movie.title}
                           sx={{
                             "&:last-child td, &:last-child th": { border: 0 },
@@ -187,6 +172,7 @@ export const Movies = () => {
               )}
             </Grid>
           </Grid>
+          <Pagination count={selectPageItems.length} page={page} value={page} onChange={handlePageChange} />
         </Box>
       </div>
     </React.Fragment>
